@@ -246,6 +246,8 @@ def configure(env):
 
     if env["execinfo"]:
         env.Append(LIBS=["execinfo"])
+    else:
+        env.Prepend(CPPDEFINES=["GLIBC"])
 
     # Link those statically for portability
     if env["use_static_cpp"]:
